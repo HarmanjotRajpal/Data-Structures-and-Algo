@@ -1,31 +1,33 @@
-        n = len(nums)
-        res = [-1 for _ in range((n+1))]
-        #print(res)
-        dict ={}
-        
-        for i in nums:
-            if i not in dict:
-                dict[i] = 1
-            else:
-                dict[i] = dict[i] + 1
-        
-        for key in dict:
-            #print(" -- " + str(key))
-            if res[dict[key]] == -1:
-                res[dict[key]] = [key]
-            else:
-                res[dict[key]].append(key)
-        #print("res",res)
-        
-        final_res = []
-        
-        for i in range(len(res)-1, -1,-1):
-            if res[i]==-1:
-                continue
-            else:
-                if len(final_res)==k:
-                    break
-                else:
-                    final_res = final_res + res[i]
+nums= [1,1,1,2,2,3]
+n=len(nums)
+k = 2
+res = [-1 for _ in range((n+1))]
+#print(res)
+dict ={}
 
-        return final_res
+        
+for i in nums:
+    if i not in dict:
+        dict[i] = 1
+    else:
+        dict[i] = dict[i] + 1
+#print(dict)
+        
+for key in dict:
+    #print(" -- " + str(key))
+    if res[dict[key]] == -1:
+        res[dict[key]] = [key]
+    else:
+        res[dict[key]].append(key)
+print("res",res)
+final_res = []
+for i in range(len(res)-1, -1,-1):
+    if res[i]==-1:
+        continue
+    else:
+        if len(final_res)==k:
+            break
+        else:
+            final_res = final_res + res[i]
+
+print(final_res)
